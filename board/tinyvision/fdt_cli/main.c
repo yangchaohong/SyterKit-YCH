@@ -39,7 +39,7 @@ extern sunxi_serial_t uart_dbg;
 
 extern dram_para_t dram_para;
 
-extern sdhci_t sdhci0;
+extern sunxi_sdhci_t sdhci0;
 
 #define FILENAME_MAX_LEN 64
 typedef struct {
@@ -431,7 +431,7 @@ int main(void) {
         printk_error("SMHC: %s controller init failed\n", sdhci0.name);
         goto _shell;
     } else {
-        printk_info("SMHC: %s controller v%x initialized\n", sdhci0.name, sdhci0.reg->vers);
+        printk_info("SMHC: %s controller initialized\n", sdhci0.name);
     }
 
     /* Initialize SD card */

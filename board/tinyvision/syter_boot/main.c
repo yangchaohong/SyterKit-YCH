@@ -80,7 +80,7 @@ extern sunxi_serial_t uart_dbg;
 
 extern sunxi_spi_t sunxi_spi0;
 
-extern sdhci_t sdhci0;
+extern sunxi_sdhci_t sdhci0;
 
 extern dram_para_t dram_para;
 
@@ -607,7 +607,7 @@ int main(void) {
         printk_error("SMHC: %s controller init failed\n", sdhci0.name);
         goto _shell;
     } else {
-        printk_info("SMHC: %s controller v%x initialized\n", sdhci0.name, sdhci0.reg->vers);
+        printk_info("SMHC: %s controller v%x initialized\n", sdhci0.name);
     }
 
     /* Initialize the SD card and check if initialization is successful. */

@@ -981,7 +981,7 @@ int sunxi_sdhci_xfer(sunxi_sdhci_t *sdhci, mmc_cmd_t *cmd, mmc_data_t *data) {
     if (data) {
         printk_trace("SMHC: transfer data %lu bytes by %s\n", data->blocksize * data->blocks,
                      (((data->blocksize * data->blocks > 512) && (mmc_host->sdhci_desc)) ? "DMA" : "CPU"));
-        if ((data->blocksize * data->blocks > 512) && (mmc_host->sdhci_desc)) {
+        if (0) {
             use_dma_status = true;
             mmc_host->reg->gctrl &= ~SMHC_GCTRL_ACCESS_BY_AHB;
             ret = sunxi_sunxi_sdhci_trans_data_dma(sdhci, data);

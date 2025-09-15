@@ -55,7 +55,7 @@ extern dram_para_t dram_para;
 
 extern sunxi_spi_t sunxi_spi0;
 
-extern sdhci_t sdhci0;
+extern sunxi_sdhci_t sdhci0;
 
 image_info_t image;
 
@@ -235,8 +235,7 @@ int main(void) {
                sdhci0.name);
     } else {
         printk_info(
-               "SMHC: %s controller v%x initialized\n", sdhci0.name,
-               sdhci0.reg->vers);
+               "SMHC: %s controller initialized\n", sdhci0.name);
     }
     if (sdmmc_init(&card0, &sdhci0) != 0) {
         printk_warning("SMHC: init failed, trying SPI\n");
